@@ -6,12 +6,11 @@ function MovieItem ({movie}) {
     const history = useHistory();
 
     const handleClick = () => {
-        console.log('clicked ', movie.id);
         dispatch({
             type: 'FETCH_DETAILS',
             payload: movie.id
         });
-
+        history.push('/details');
     }
 
     return (
