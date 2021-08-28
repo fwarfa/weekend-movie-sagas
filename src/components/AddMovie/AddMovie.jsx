@@ -1,7 +1,91 @@
+import { useHistory } from "react-router-dom";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+
 function AddMovie() {
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const [newMovie, setNewMovie] = useState(
+        {
+            title: '',
+            poster: '',
+            description: '',
+            genre_id: ''
+        }
+    );
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        console.log('new Movie is ', newMovie);
+
+        if (newMovie.keys === '') {
+            alert()
+        }
+        dispatch({
+            type: 'ADD_MOVIE',
+            payload: newMovie
+        });
+
+        history.push('/');
+    }
+
+    const onCancel = () => {
+        history.push('/');
+    } 
+
     return (
         <div>
             <h1>Add Movies Page!</h1>
+            <form onSubmit={handleSubmit}>
+                <input 
+                    type="text" 
+                    placeholder="movie title"
+                    onChange={(event) => setNewMovie({...newMovie, title: event.target.value})}
+                    value={newMovie.title}
+                    required
+                />
+                <br />
+                <input 
+                    type="text" 
+                    placeholder="movie poster url"
+                    onChange={(event) => setNewMovie({...newMovie, poster: event.target.value})}
+                    value={newMovie.poster}
+                    required
+                />
+                <br />
+                <textarea 
+                    name="description" 
+                    placeholder="movie description"
+                    onChange={(event) => setNewMovie({...newMovie, description: event.target.value})}
+                    value={newMovie.description}
+                    rows="5" 
+                    cols="50"
+                    required
+
+                >
+                </textarea>
+                <br />
+                <select required name="genres" onChange={(event) => setNewMovie({...newMovie, genre_id: event.target.value})} value={newMovie.genre_id}>
+                    <option selected value=""> -- select an option -- </option>
+                    <option value="1" selected>Adventure</option>
+                    <option value="2">Animated</option>
+                    <option value="3">Biographical</option>
+                    <option value="4">Comedy</option>
+                    <option value="5">Disaster</option>
+                    <option value="6">Drama</option>
+                    <option value="7">Epic</option>
+                    <option value="8">Fantasy</option>
+                    <option value="9">Musical</option>
+                    <option value="10">Romantic</option>
+                    <option value="11">Science Fiction</option>
+                    <option value="12">Space-Opera</option>
+                    <option value="13">Superhero</option>
+                </select>
+                <br />
+                <button onClick={onCancel}>Cancel</button>
+                <input type="submit" value="Submit" />
+
+            </form>
         </div>
     );
 }
