@@ -65,7 +65,12 @@ function AddMovie() {
                 >
                 </textarea>
                 <br />
-                <select required name="genres" onChange={(event) => setNewMovie({...newMovie, genre_id: event.target.value})} value={newMovie.genre_id}>
+                <select 
+                    required 
+                    name="genres" 
+                    onChange={(event) => setNewMovie({...newMovie, genre_id: event.target.value})} 
+                    value={newMovie.genre_id}
+                >
                     <option selected value=""> -- select an option -- </option>
                     <option value="1" selected>Adventure</option>
                     <option value="2">Animated</option>
