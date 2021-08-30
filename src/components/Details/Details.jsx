@@ -1,6 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
+// Material UI
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+
 function Details() {
     const history = useHistory();
     const dispatch = useDispatch();
@@ -15,7 +19,7 @@ function Details() {
         // getting movie details for each movie based on movie id
         // displaying movie title, poster, genres, and description
         <div>
-            <h1>Details Page!</h1>
+            <Typography variant="h4" gutterBottom>Details Page</Typography>
             <div>
                  {movieDetails.map(details => (
                       <div key={details.id}>

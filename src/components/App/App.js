@@ -3,20 +3,23 @@ import './App.css';
 import MovieList from '../MovieList/MovieList';
 import Details from '../Details/Details';
 import AddMovie from '../AddMovie/AddMovie';
+// Material UI
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 
 
 
 function App() {
   return (
     <div className="App">
+        <header>
+            <img className="header-img" src={process.env.PUBLIC_URL + '/images/movies.jpg'} />
+        </header>
       <Router> 
         <nav>
-              <Link to="/" exact>Movie List</Link>
-              <br />
-              <Link to="/addMovie" exact>Add Movie</Link>
+          <Link className="link" to="/" exact>Movie List</Link>
+          <Link className="link" to="/addMovie" exact>Add Movie</Link>
         </nav>
-
-      <h1>The Movies Saga!</h1>       
         <Route path="/" exact>
           <MovieList />
         </Route>

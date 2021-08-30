@@ -29,7 +29,7 @@ function MovieList() {
     return (
         // Maping through the movie reducer from index to display each movie
         <Container>
-            <Typography variant="h2" gutterBottom>Movie List</Typography>
+            <Typography variant="h4" gutterBottom>Movie List</Typography>
             <Grid container spacing={5} className="movies">
                 {movies.map(movie => (
                     // implemented grid to make page responsive
