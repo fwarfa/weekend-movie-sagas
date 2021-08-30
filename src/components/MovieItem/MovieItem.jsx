@@ -37,7 +37,7 @@ function MovieItem ({movie}) {
         <div>
             <Paper >
                 <Typography variant="h6" gutterBottom>{movie.title}</Typography>
-                <img onClick={handleClick} src={movie.poster} alt={movie.title}/>
+                <img width="200" height="300" onClick={handleClick} src={movie.poster} alt={movie.title}/>
             </Paper>
         </div>
     )
