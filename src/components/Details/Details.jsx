@@ -12,6 +12,8 @@ function Details() {
         history.push('/');
     }
     return (
+        // getting movie details for each movie based on movie id
+        // displaying movie title, poster, genres, and description
         <div>
             <h1>Details Page!</h1>
             <div>

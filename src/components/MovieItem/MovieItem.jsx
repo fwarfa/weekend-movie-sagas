@@ -22,6 +22,8 @@ function MovieItem ({movie}) {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    // getting specific details for each movie 
+    // takes user to details page
     const handleClick = () => {
         dispatch({
             type: 'FETCH_DETAILS',
@@ -31,6 +33,7 @@ function MovieItem ({movie}) {
     }
 
     return (
+        // displaying title and movie poster for each movie
         <div>
             <Paper >
                 <Typography variant="h6" gutterBottom>{movie.title}</Typography>

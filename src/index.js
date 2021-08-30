@@ -32,6 +32,7 @@ function* fetchAllMovies() {
 }
 
 function* fetchDetails(action) {
+    // gets specific movie clicked details based on id
     try {
         const details = yield axios.get(`/api/movie/${action.payload}`);
         console.log('get details', details.data);
@@ -45,8 +46,9 @@ function* fetchDetails(action) {
 }
 
 function* addMovie(action) {
+    // posts movie to database
     yield axios.post('/api/movie', action.payload);
-
+    // gets movie details include added movie
     yield put({
         type: 'FETCH_MOVIES'
     });

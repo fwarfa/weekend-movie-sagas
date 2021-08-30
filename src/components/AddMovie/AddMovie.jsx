@@ -14,14 +14,11 @@ function AddMovie() {
             genre_id: ''
         }
     );
-
+    // on submit of form, movie will be sent to sent to DB 
+    // user will be taken to home page where movie will show up
     const handleSubmit = event => {
         event.preventDefault();
-        console.log('new Movie is ', newMovie);
 
-        if (newMovie.keys === '') {
-            alert()
-        }
         dispatch({
             type: 'ADD_MOVIE',
             payload: newMovie
@@ -29,12 +26,13 @@ function AddMovie() {
 
         history.push('/');
     }
-
+    // on click of cancel user will be taken to home page
     const onCancel = () => {
         history.push('/');
     } 
 
     return (
+        // inputs capture user input and save them to newMovie object
         <div>
             <h1>Add Movies Page!</h1>
             <form onSubmit={handleSubmit}>
