@@ -1,6 +1,7 @@
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { Button } from '@material-ui/core';
 
 function AddMovie() {
     const history = useHistory();
@@ -87,8 +88,8 @@ function AddMovie() {
                     <option value="13">Superhero</option>
                 </select>
                 <br />
-                <button onClick={onCancel}>Cancel</button>
-                <input type="submit" value="Submit" />
+                <Button variant="contained" size="small" color="secondary" onClick={onCancel}>Cancel</Button>
+                <Button variant="contained" size="small" type="submit" color="primary">Submit</Button>
 
             </form>
         </div>
